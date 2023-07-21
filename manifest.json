@@ -1,0 +1,11 @@
+{
+  "name": "<Your plugin name>",
+  "id": "<Your plugin id>",
+  "api": "1.0.0",
+  "main": "./build/bundle.js",
+  "capabilities": [],
+  "enableProposedApi": false,
+  "editorType": [
+    "figma"
+  ]
+}
