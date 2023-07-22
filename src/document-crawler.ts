@@ -12,6 +12,6 @@ export function forAllSubtree(nodes: readonly SceneNode[], callback: TraversalCa
 
         // Consider skipping nodes with type = INSTANCE here
         if (!("findChildren" in node)) continue;
-        node.findChildren().forEach((child) => { stack.push(child); });
+        node.findChildren(() => true).forEach((child) => { stack.push(child); });
     }
 }
