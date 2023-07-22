@@ -1,18 +1,17 @@
-export type AnyComponentNode = ComponentNode | ComponentSetNode;
-export type TraversalCallback = (node: AnyComponentNode) => void;
+export type TraversalCallback = (node: SceneNode) => void;
 
-export function forAllSubtreeComponents(nodes: readonly SceneNode[], callback: TraversalCallback) {
+export function forAllSubtree(nodes: readonly SceneNode[], callback: TraversalCallback) {
     const stack: SceneNode[] = [...nodes];
 
     while (stack.length > 0) {
         const node = stack.pop();
         if (!node) break;
 
-        if (node.type === "COMPONENT" || node.type === "COMPONENT_SET")
-            callback(node);
+        // Place condition here to filter nodes
+        callback(node);
 
+        // Consider skipping nodes with type = INSTANCE here
         if (!("findChildren" in node)) continue;
-        node.findChildren(node => node.type !== "INSTANCE")
-          .forEach((child) => { stack.push(child); });
+        node.findChildren().forEach((child) => { stack.push(child); });
     }
 }

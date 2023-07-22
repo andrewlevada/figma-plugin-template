@@ -1,9 +1,9 @@
-import { forAllSubtreeComponents } from "./document-crawler";
+import { forAllSubtree } from "./document-crawler";
 
 const selectedNodes: readonly SceneNode[] = figma.currentPage.selection;
 
-forAllSubtreeComponents(selectedNodes, (node) => {
-  
+forAllSubtree(selectedNodes, (node) => {
+
 });
 
 figma.closePlugin();
