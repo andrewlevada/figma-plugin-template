@@ -1,16 +1,14 @@
 {
   "name": "figma-plugins-template",
   "version": "1.0.0",
-  "description": "",
   "main": "./build/bundle.js",
+  "type": "module",
   "scripts": {
     "build": "npm run build-ts && npm run build-rollup",
-    "watch": "concurrently \"npm run build-ts -- --watch\" \"npm run build-rollup -- --watch\"",
+    "watch": "npm run build-ts && concurrently \"npm:build-* -- --watch\"",
     "build-ts": "tsc -p tsconfig.json",
-    "build-rollup": "rollup ./build/index.js --file ./build/bundle.js"
+    "build-rollup": "rollup -c"
   },
-  "author": "",
-  "license": "",
   "devDependencies": {
     "@figma/plugin-typings": "*",
     "concurrently": "^8.2.0",
