@@ -8,4 +8,5 @@ node_modules
 
 # build
 build
-
+.packed-files
+figma-plugin-template.zip
